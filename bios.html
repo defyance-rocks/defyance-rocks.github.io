@@ -1,7 +1,8 @@
 <html>
 <head>
+<link rel="stylesheet" href="assets/custom.css">
 </head>
-<body style="background-color:#000; color: silver; display:flex; flex-direction:column; align-items:center; text-align:center;">
+<body>
     <p>
         <img src='assets/img/Splosion.png' width='400' />
     </p>
@@ -11,41 +12,70 @@
 	<h2>
 		Defyance are!
 	</h2>
-	<img src='assets/img/AirHammer.jpg' width='200' />
-	<p>
-        Josh "Air Hammer" - Bass & Backing Vocals
-    </p>
-    <p>
-        Josh emerged from a decades-long slumber under a pile of Iron Maiden CDs and rotting leaves when Ricky stopped for a piss while hunting a new drum kit in Minnesota's iron range.
-        With bass guitar in hand and an encyclopedic knowledge of 80s metal trivia, he quickly proved to be an invaluable addition to Defyance. 
-        When not laying down thunderous bass lines, Josh enjoys being confused by his own shadow and attempting human speech.<br /><br /><b><i>It's not going well.</i></b>
-    </p>
-    <p>
-        Jeff "Ricky "Not Ricky Rocket" Rock" - Drums & Backing Vocals
-    </p>
-    <p>
-        As Defyance's rhythm maestro, Ricky's drumming style is a unique blend of precision and chaos, much like a tornado in a watch factory.
-        His energetic performances often leave audiences wondering if they're witnessing a musical genius or a wild animal possessed by the spirit of another, wilder animal.
-        When not behind the drum kit, Ricky enjoys feeding perfectly healthy trees into wood chippers and attempting to stop his pet parrot from sinning, like, <i>all the time</i>.
-    </p>
-    <p>
-        Pat "Pat By-ro-ny" - Lead Vocals & Guitar
-    </p>
-    <p>
-        With a vocal range that makes Axl Rose weep into his morning supermodels, Pat is the undeniable voice of Defyance. 
-        With a stage presence so formidable that audiences have been known to spontaneously combust, Pat politely requests attention with every note he sings.
-        <br /><br/>
-        Except F#. He never hits F# on purpose.
-        <br /><br/>
-        When not fronting the band, Pat enjoys long walks on the beach, candlelit dinners, and gazing lovingly into your girlfriend's <span style="text-decoration: line-through;">thighs</span> eyes.
-    </p>
-    <P>
-        "King" Brett - Guitar
-    </P>
-    <p>
-        The newest member of Defyance, Brett has a mastery of the fretboard that makes Steve Vai question his life choices. 
-        Known for making the most mind-bending solos look easier than tying shoelaces, Brett is currently under observation for narcolepsy, although he insists it's just "extreme relaxation techniques".
-        When not metaphorically setting his fretboard on fire, Brett enjoys literally setting his fretboard on fire, collecting vintage pocket lint, and not even trying to understand NFTs.
-    </p>
+    <div class="bios-container">
+        <div class="bio-left">
+            <img id="pat-photo" src='assets/img/By-ron-y.jpg' />
+            <div>
+                <h3>
+                    Pat "Pat By-ro-ny" - Lead Vocals & Guitar
+                </h3>
+                <p>
+                    With a vocal range that makes Axl Rose weep into his morning supermodels, Pat is the undeniable voice of Defyance. 
+                    With a stage presence so formidable that audiences have been known to spontaneously combust, Pat politely requests attention with every note he sings.
+                    <br /><br/>
+                    Except F#. He never hits F# on purpose.
+                    <br /><br/>
+                    When not fronting the band, Pat enjoys long walks on the beach, candlelit dinners, and gazing lovingly into your girlfriend's <span class="line-through">thighs</span> eyes.
+                </p>
+            </div>
+        </div>
+        <div class="bio-right">
+            <img src='assets/img/HeyLucyImHome.jpg' />
+            <div>
+                <h3>
+                    Jeff "Ricky "Not Ricky Rocket" Rock" - Drums & Backing Vocals
+                </h3>
+                <p>
+                    As Defyance's rhythm maestro, Ricky's drumming style is a unique blend of precision and chaos, much like a tornado in a watch factory.
+                    His energetic performances often leave audiences wondering if they're witnessing a musical genius or a wild animal possessed by the spirit of another, wilder animal.
+                    When not behind the drum kit, Ricky enjoys feeding perfectly healthy trees into wood chippers and attempting to stop his pet parrot from sinning, like, <i>all the time</i>.
+                </p>
+            </div>
+        </div>
+        <div class="bio-left">
+            <img src='assets/img/AirHammer.jpg' />
+            <div>
+                <h3>
+                    Josh "Air Hammer" - Bass & Backing Vocals
+                </h3>
+                <p>
+                    Josh emerged from a decades-long slumber under a pile of Iron Maiden CDs and rotting leaves when Ricky stopped for a piss while hunting a new drum kit in Minnesota's iron range.
+                    With bass guitar in hand and an encyclopedic knowledge of 80s metal trivia, he quickly proved to be an invaluable addition to Defyance. 
+                    When not laying down thunderous bass lines, Josh enjoys being confused by his own shadow and attempting human speech.<br /><br /><b><i class="centered-quote">It's not going well.</i></b>
+                </p>
+            </div>
+        </div>
+        <div class="bio-right">
+            <img src='assets/img/Hizzoner.jpg' />
+            <div>
+                <h3>
+                    "King" Brett - Guitar
+                </h3>
+                <p>
+                    The newest member of Defyance, Brett has a mastery of the fretboard that makes Steve Vai question his life choices. 
+                Known for making the most mind-bending solos look easier than tying shoelaces, Brett is currently under observation for narcolepsy, although he insists it's just "extreme relaxation techniques".
+                When not metaphorically setting his fretboard on fire, Brett enjoys literally setting his fretboard on fire, collecting vintage pocket lint, and not even trying to understand NFTs.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('pat-photo').addEventListener('mouseover', function() {
+            this.src = 'assets/img/PatHalford.jpg';
+        });
+        document.getElementById('pat-photo').addEventListener('mouseout', function() {
+            this.src = 'assets/img/By-ron-y.jpg';
+        });
+    </script>
 </body>
 </html>

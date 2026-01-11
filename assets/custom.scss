@@ -1,0 +1,88 @@
+---
+---
+
+body {
+    background-color: #000;
+    color: silver;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Verdane', sans-serif;
+}
+
+table {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+td {
+    text-align: center;
+}
+
+.crossed {
+      background: linear-gradient(to bottom right, transparent 45%, red 45%, red 55%, transparent 55%);
+}
+
+.bios-container {
+    max-width: 1200px;
+}
+
+.bio-left, .bio-right {
+    margin: 20px 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.bio-right {
+    flex-direction: row-reverse;
+}
+
+.bio-left img, .bio-right img {
+    width: 200px;
+}
+
+.bio-left img {
+    margin-right: 10px;
+}
+
+.bio-right img {
+    margin-left: 10px;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.centered-quote {
+    display: block;
+    text-align: center;
+}
+
+table.tour-dates {
+    width: 600px;
+    border-spacing: 0px;
+    tr {
+        td {
+            font-size: 20px;
+            border: 1px solid #909090;
+        }
+    }
+}
+
+div.tour-title {
+    font-size: 72px;
+    font-weight: bold;
+    color: red;
+    margin: 20px 0 10px 0;
+    font-family: 'Verdana', sans-serif;
+}
+
+div.tour-subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: darkred;
+    margin-bottom: 30px;
+    font-family: 'Verdana', sans-serif;
+}
