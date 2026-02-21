@@ -1,14 +1,17 @@
-/*
-This file is deprecated and no longer used.
-The site uses assets/custom.css (plain CSS) for styling instead.
-*/
-    background-color: #000;
-    color: silver;
+/* Dark theme for Defyance site */
+
+html, body {
+    background-color: #000 !important;
+    color: silver !important;
+}
+
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     font-family: 'Verdane', sans-serif;
+    min-height: 100vh;
 }
 
 table {
@@ -21,7 +24,7 @@ td {
 }
 
 .crossed {
-      background: linear-gradient(to bottom right, transparent 45%, red 45%, red 55%, transparent 55%);
+    background: linear-gradient(to bottom right, transparent 45%, red 45%, red 55%, transparent 55%);
 }
 
 .bios-container {
@@ -63,12 +66,11 @@ td {
 table.tour-dates {
     width: 600px;
     border-spacing: 0px;
-    tr {
-        td {
-            font-size: 20px;
-            border: 1px solid #909090;
-        }
-    }
+}
+
+table.tour-dates tr td {
+    font-size: 20px;
+    border: 1px solid #909090;
 }
 
 div.tour-title {
@@ -87,39 +89,51 @@ div.tour-subtitle {
     font-family: 'Verdana', sans-serif;
 }
 
-/* Bootstrap dark-theme overrides to match site */
+/* Bootstrap dark-theme overrides */
 .bg-dark, .navbar-dark.bg-dark {
     background-color: #000 !important;
 }
+
 .navbar-dark .navbar-brand, .navbar-dark .navbar-nav .nav-link {
     color: silver !important;
 }
+
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
     color: #ffffff !important;
 }
+
 .table-dark {
     background-color: #0b0b0b !important;
     color: silver !important;
 }
+
 .table-dark > :where(thead, tbody) > tr > th,
 .table-dark > :where(thead, tbody) > tr > td {
     border-color: #2b2b2b !important;
 }
+
 .table-striped.table-dark > tbody > tr:nth-of-type(odd) {
-    --bs-table-bg: #0a0a0a;
     background-color: #0a0a0a !important;
 }
+
 .card {
     background-color: #0b0b0b !important;
     color: silver !important;
     border: 1px solid #2b2b2b !important;
 }
+
 .card .card-body {
     color: silver !important;
 }
+
 a {
     color: #e6e6e6;
 }
+
 a:hover {
     color: #ffffff;
+}
+
+.container, .container-fluid {
+    background-color: transparent !important;
 }

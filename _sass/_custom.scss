@@ -1,14 +1,11 @@
 /*
-This file is deprecated and no longer used.
+Deprecated: This file is no longer used.
 The site uses assets/custom.css (plain CSS) for styling instead.
+This was originally part of the Jekyll SASS pipeline but was replaced with static CSS for reliability.
 */
-    background-color: #000;
-    color: silver;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-family: 'Verdane', sans-serif;
+
+.container, .container-fluid {
+    background-color: transparent !important;
 }
 
 table {
