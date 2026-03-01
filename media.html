@@ -6,7 +6,8 @@ title: Media
 <h2 class="mb-4">Media Gallery</h2>
 
 <div class="row g-3" id="gallery-thumbs">
-  {% assign thumbs = site.static_files | where_exp: "file", "file.path contains '/assets/img/gallery' and file.path contains '_sm.'" | sort: 'path' %}
+  {% assign thumbs = site.static_files | where_exp: "file", "file.path contains '/assets/img/gallery'" %}
+  {% assign thumbs = thumbs | where_exp: "file", "file.path contains '_sm.'" | sort: 'path' %}
   {% for thumb in thumbs %}
     {% assign med = thumb.path | replace: '_sm', '_med' %}
     <div class="col-6 col-md-3">
