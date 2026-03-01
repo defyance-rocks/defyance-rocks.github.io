@@ -103,6 +103,11 @@ div.tour-subtitle {
     color: silver !important;
 }
 
+.navbar-dark .navbar-nav .nav-link.active {
+    color: red !important;
+    font-weight: bold;
+}
+
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
     color: #ffffff !important;
 }
@@ -143,4 +148,15 @@ span.emphasis {
     color: #ff0000;
     font-weight: bold;
     font-size: 1.2em;
+}
+
+/* lightbox navigation buttons */
+#galleryPrev, #galleryNext {
+    background-color: rgba(0,0,0,0.7) !important;
+    color: red !important;
+    border: none !important;
+}
+
+#galleryPrev:hover, #galleryNext:hover {
+    background-color: rgba(0,0,0,0.9) !important;
 }
