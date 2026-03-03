@@ -3,7 +3,49 @@ layout: default
 title: Media
 ---
 
-<h2 class="mb-4">Media Gallery</h2>
+{% assign videos = "lO8ynCYi7CU|Wasted
+GCXGAxHVK4c|In My Dreams
+E-WWxHEgi7A|Metal Health" | split: "
+" | where_exp: "v", "v != empty" %}
+
+<h2 class="mb-4">Videos</h2>
+
+<div class="row g-4">
+  {% for video in videos %}
+    {% assign video_data = video | split: "|" %}
+    {% assign video_id = video_data[0] %}
+    {% assign video_title = video_data[1] %}
+    <div class="col-12 col-md-6 col-lg-4 position-relative">
+      <img src="https://img.youtube.com/vi/{{ video_id }}/maxresdefault.jpg" 
+           class="img-fluid video-thumb cursor-pointer" 
+           data-video-id="{{ video_id }}" 
+           data-video-index="{{ forloop.index0 }}"
+           alt="Video thumbnail" 
+           style="cursor: pointer;" />
+      <div class="position-absolute bottom-0 start-0 end-0 p-2 bg-dark bg-opacity-75 text-light" style="font-size: 0.9rem; max-height: 3em; overflow: hidden;">
+        {{ video_title }}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<!-- video lightbox modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-transparent border-0 position-relative">
+      <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body text-center">
+        <div class="ratio ratio-16x9">
+          <iframe id="videoModalIframe" src="" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y ms-2" id="videoPrev">&lsaquo;</button>
+      <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y me-2" id="videoNext">&rsaquo;</button>
+    </div>
+  </div>
+</div>
+
+<h2 class="mb-4 mt-5">Pics</h2>
 
 <div class="row g-3" id="gallery-thumbs">
   {% assign thumbs = site.static_files | where_exp: "file", "file.path contains '/assets/img/gallery'" %}
@@ -36,30 +78,72 @@ title: Media
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
+  // Photo gallery
   const thumbs = document.querySelectorAll('.gallery-thumb');
-  let current = 0;
+  let currentPhoto = 0;
   const modalImg = document.getElementById('galleryModalImage');
   const galleryModalEl = document.getElementById('galleryModal');
   const galleryModal = new bootstrap.Modal(galleryModalEl);
 
-  function showIndex(idx) {
-    current = (idx + thumbs.length) % thumbs.length;
-    const med = thumbs[current].dataset.med;
+  function showPhotoIndex(idx) {
+    currentPhoto = (idx + thumbs.length) % thumbs.length;
+    const med = thumbs[currentPhoto].dataset.med;
     modalImg.src = med;
     galleryModal.show();
   }
 
   thumbs.forEach(function(img, i){
     img.addEventListener('click', function(){
-      showIndex(i);
+      showPhotoIndex(i);
     });
   });
 
   document.getElementById('galleryPrev').addEventListener('click', function(){
-    showIndex(current - 1);
+    showPhotoIndex(currentPhoto - 1);
   });
   document.getElementById('galleryNext').addEventListener('click', function(){
-    showIndex(current + 1);
+    showPhotoIndex(currentPhoto + 1);
+  });
+
+  // Video gallery
+  const videoThumbs = document.querySelectorAll('.video-thumb');
+  let currentVideo = 0;
+  const videoIframe = document.getElementById('videoModalIframe');
+  const videoModalEl = document.getElementById('videoModal');
+  const videoModal = new bootstrap.Modal(videoModalEl);
+
+  function showVideoIndex(idx) {
+    currentVideo = (idx + videoThumbs.length) % videoThumbs.length;
+    const videoId = videoThumbs[currentVideo].dataset.videoId;
+    videoIframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+  }
+
+  function showAndOpenVideoModal(idx) {
+    showVideoIndex(idx);
+    videoModal.show();
+  }
+
+  function stopVideo() {
+    videoIframe.src = '';
+  }
+
+  videoThumbs.forEach(function(thumb, i){
+    thumb.addEventListener('click', function(){
+      showAndOpenVideoModal(i);
+    });
+  });
+
+  document.getElementById('videoPrev').addEventListener('click', function(){
+    stopVideo();
+    showVideoIndex(currentVideo - 1);
+  });
+  document.getElementById('videoNext').addEventListener('click', function(){
+    stopVideo();
+    showVideoIndex(currentVideo + 1);
+  });
+
+  videoModalEl.addEventListener('hide.bs.modal', function(){
+    stopVideo();
   });
 });
 </script>
